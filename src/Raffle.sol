@@ -38,8 +38,7 @@ contract Raffle is VRFConsumerBaseV2 {
 
     enum RaffleState {
         Open,
-        Drawing,
-        Closed
+        Drawing
     }
 
     uint256 private immutable i_entranceFee;
@@ -173,5 +172,9 @@ contract Raffle is VRFConsumerBaseV2 {
         uint256 indexOfPlayer
     ) external view returns (address payable) {
         return s_participants[indexOfPlayer];
+    }
+
+    function getlastDrawingTimeStamp() public view returns (uint256) {
+        return s_lastDrawingTimeStamp;
     }
 }
